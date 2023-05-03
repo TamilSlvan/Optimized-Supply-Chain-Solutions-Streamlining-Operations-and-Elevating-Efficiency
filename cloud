@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "author": "Nandeesh.N 20IT030",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": 0, "left": 0, "attrs": {} },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": -190.24,
+      "left": -42.35,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": -191.2,
+      "left": 130.95,
+      "attrs": { "volume": "0.1" }
+    },
+    { "type": "wokwi-hc-sr04", "id": "ultrasonic1", "top": -159.6, "left": 329.67, "attrs": {} },
+    {
+      "type": "wokwi-pir-motion-sensor",
+      "id": "pir1",
+      "top": -27.09,
+      "left": -216.89,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": -139.73,
+      "left": -93.74,
+      "attrs": { "value": "1000" }
+    }
+  ],
+  "connections": [
+    [ "ultrasonic1:VCC", "uno:5V", "red", [ "v387.46", "h-3.36" ] ],
+    [
+      "ultrasonic1:GND",
+      "uno:GND.2",
+      "black",
+      [ "v219.13", "h-0.86", "v127.69", "h-260.03", "v-11.61" ]
+    ],
+    [ "uno:7", "ultrasonic1:TRIG", "green", [ "v-43.02", "h219.06" ] ],
+    [ "ultrasonic1:ECHO", "uno:6", "green", [ "v38.04", "h-223.03", "v0" ] ],
+    [ "pir1:VCC", "uno:4", "red", [ "v31.08", "h-58.98", "v-154.39", "h455.05" ] ],
+    [ "pir1:OUT", "uno:5V", "green", [ "v258.61", "h329.45" ] ],
+    [ "pir1:GND", "uno:GND.2", "black", [ "v213.33", "h330.17" ] ],
+    [ "led1:C", "r1:2", "green", [ "v0" ] ],
+    [ "bz1:1", "uno:GND.1", "green", [ "v67.37", "h-31.98" ] ],
+    [ "bz1:2", "uno:12", "green", [ "v90.59", "h-33.85" ] ],
+    [ "r1:1", "uno:9", "green", [ "v125.6", "h260.34" ] ],
+    [ "led1:A", "uno:GND.1", "green", [ "v108.41", "h130.55" ] ]
+  ],
+  "dependencies": {}
+}
